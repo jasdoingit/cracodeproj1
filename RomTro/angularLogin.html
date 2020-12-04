@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+  <style>
+  	/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+.formcontainer {
+    padding: 16px;
+}
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+.modal-text{
+	width: 100%;
+    padding: 7px 0px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+/* Set a style for all buttons */
+.login-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-button:hover {
+    opacity: 0.8;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
+
+  </style>
+</head>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		// For modal
+		$scope.showMe = false;
+		$scope.showDiv = function(){
+			$scope.showMe = true;
+			$scope.name = "";
+			$scope.pass = "";
+			$scope.myName= true;
+			$scope.msg = true;
+		}
+		// For login
+		$scope.name = " ";
+		$scope.msg = true;
+		$scope.login = function(){
+			$scope.msg = false;
+		}
+		// For msg in modal
+		$scope.myName= true;
+		$scope.showName = function(){
+			$scope.myName= false;
+		}
+	});
+</script>
+<body ng-app='myApp' ng-controller='myCtrl'>
+<div class="container" style="text-align:center;">
+<h3>Welcome</h3>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"  ng-click="showDiv()">
+  Click to Login
+</button>
+<div ng-if="msg==false"><h4> Welcome <span>{{name}}</span></h4></div>
+</div>
+<div ng-show="showMe">
+	<div class="modal fade"  id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+	      <form action="#">
+	      	<div class="imgcontainer">
+			  <span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+			  <img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+			</div>
+			<div class="formcontainer">
+	      	<label>Name :</label>
+	      	<p><input type="text" class="modal-text" ng-model="name" ng-blur="showName()"></p>
+	      	
+	      	<label>Password :</label>
+	      	<p><input type="password" class="modal-text" ng-model="pass"></p>
+	      	<p><button type="submit" class="login-button">Login</button></p>
+   .		 <input type="checkbox" checked="checked"> Remember me
+   			 <span class="pull-right"><a href="#">Forgot password?</a></span>
+	      	</div>
+	      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Not a Member? Sign Up Now</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, intial-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">	
+		<link href="css/customCss.css" rel="stylesheet">
+		<link rel="stylesheet" href="login-popup.css">
+		<link href="css/slideshow.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/login-popup.js"></script>
+	    <script src="js/angular-animate.js"></script>
+	     <script src="js/ui-bootstrap-tpls-1.3.2.js"></script>
+	</head>
+	<body ng-app='Home' ng-controller='LoginCtrl' class="home-container">
+		<nav class="navbar navbar-fixed-top header-row">
+			<div class="container-fluid">
+			<div class="navbar-header">
+			  <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+			  <a href="#" class="anchor-style"><img  class="logo" src="logos/logo.jpeg"/></a>
+			</div>
+			<div>
+			  <ul class="nav navbar-nav pull-right header-right">
+			    <li><button class="btn btn-default login-btn" type="submit" data-toggle="modal" data-target="#myModal"  ng-click="showDiv()">Login</button></li>
+			    <li class="active"><a href="http://www.twitter.com/" target="popup" 
+	  				onclick="window.open('http://www.twitter.com/','popup','width=800,height=800'); return false;">
+			    <i class="fa fa-twitter fa-2x social-links" id="contact_even"  aria-hidden="true" ></i></a></li>
+			    <li><a href="http://www.facebook.com/" target="popup" 
+	  				onclick="window.open('http://www.facebook.com/','popup','width=800,height=800'); return false;">
+	  				<i class="fa fa-facebook fa-2x social-links" id="contact_odd" aria-hidden="true"></i></a>
+			    </li>
+			    <li><a href="http://www.linkedin.com/" target="popup" 
+	  				onclick="window.open('http://www.linkedin.com/','popup','width=800,height=800'); return false;">
+			    <i class="fa fa-linkedin fa-2x social-links" id="contact_odd" aria-hidden="true"></i></a></li>
+			    <li><a href="http://www.instagram.com/" target="popup" 
+	  				onclick="window.open('http://www.instagram.com/','popup','width=800,height=800'); return false;">
+			    <i class="fa fa-instagram fa-2x social-links" id="contact_odd" aria-hidden="true"></i></a></li>
+			  </ul>
+			</div>
+			</div>
+		</nav>
+
+		<!-- Login pop up -->
+		<div ng-show="showMe">
+			<div class="modal fade"  id="myModal" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-body">
+			        <form action="#">
+			          <div class="imgcontainer">
+			            <span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+			            <img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+			          </div>
+			          <div class="formcontainer">
+			            <label>Name :</label>
+			            <p><input type="text" class="modal-text" ng-model="name" ng-blur="showName()"></p>
+			    
+			            <label>Password :</label>
+			            <p><input type="password" class="modal-text" ng-model="pass"></p>
+			            <p><button type="submit" class="login-button">Login</button></p>
+			 .            <input type="checkbox" checked="checked"> Remember me
+			            <span class="pull-right" data-toggle="modal" data-dismiss="modal" data-target="#forgotPasswordModal"  ng-click="showForgotPasswordPopup()"><a href="#">Forgot password?</a></span>
+			          </div>
+			        </form>
+			      </div>
+			      <div class="modal-footer">
+			      	<!-- <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal"  ng-click="showDiv()">Login</button> -->
+			        <button type="submit" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#signUpModal"  ng-click="showSignUpPopup()">Not a Member? Sign Up Now</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+
+
+		<!-- Sign up -->
+		<div ng-show="showSignUp">
+			<div class="modal fade"  id="signUpModal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-body">
+			        <form action="#">
+			          <div class="imgcontainer">
+			            <span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+			            <img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+			          </div>
+			          <div class="formcontainer">
+			            <label>Name :</label>
+			            <p><input type="text" class="modal-text" ng-model="userName" ng-blur="showUserName()"></p>
+			            <label>Email Id :</label>
+			            <p><input type="text" class="modal-text" ng-model="userEmail" ng-blur="showUserEmail()"></p>	    
+			            <label>Password :</label>
+			            <p><input type="password" class="modal-text" ng-model="userPassword"></p>
+			            <label>Confirm Password :</label>
+			            <p><input type="password" class="modal-text" ng-model="confirmPassword"></p>
+			          </div>
+			        </form>
+			      </div>
+			      <div class="modal-footer">
+			            <p class="pull-left"><button type="submit" class="login-button" data-dismiss="modal">Sign Up</button></p>
+			            <p class="pull-right"><button type="submit" class="login-button" data-dismiss="modal">Cancel</button></p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</body>
+</html>

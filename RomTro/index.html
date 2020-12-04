@@ -1,0 +1,299 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, intial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">	
+	<link href="css/customCss.css" rel="stylesheet">
+	<link rel="stylesheet" href="login-popup.css">
+	<link href="css/slideshow.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/login-popup.js"></script>
+    <script src="js/angular-animate.js"></script>
+     <script src="js/ui-bootstrap-tpls-1.3.2.js"></script>
+</head>
+<body ng-app='Home' ng-controller='LoginCtrl' class="home-container">
+	<nav class="navbar navbar-fixed-top header-row">
+		<div class="container-fluid">
+		<div class="navbar-header">
+		  <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+		  <a href="#" class="anchor-style"><img  class="logo" src="logos/logo.jpeg"/></a>
+		</div>
+		<div>
+		  <ul class="nav navbar-nav pull-right header-right">
+		    <li><button class="btn btn-default login-btn" type="submit" data-toggle="modal" data-target="#myModal"  ng-click="showDiv()">Login</button></li>
+		    <li class="active"><a href="http://www.twitter.com/" target="popup" 
+  				onclick="window.open('http://www.twitter.com/','popup','width=800,height=800'); return false;">
+		    <i class="fa fa-twitter fa-2x social-links" id="contact_even"  aria-hidden="true" ></i></a></li>
+		    <li><a href="http://www.facebook.com/" target="popup" 
+  				onclick="window.open('http://www.facebook.com/','popup','width=800,height=800'); return false;">
+  				<i class="fa fa-facebook fa-2x social-links" id="contact_odd" aria-hidden="true"></i></a>
+		    </li>
+		    <li><a href="http://www.linkedin.com/" target="popup" 
+  				onclick="window.open('http://www.linkedin.com/','popup','width=800,height=800'); return false;">
+		    <i class="fa fa-linkedin fa-2x social-links" id="contact_odd" aria-hidden="true"></i></a></li>
+		    <li><a href="http://www.instagram.com/" target="popup" 
+  				onclick="window.open('http://www.instagram.com/','popup','width=800,height=800'); return false;">
+		    <i class="fa fa-instagram fa-2x social-links" id="contact_odd" aria-hidden="true"></i></a></li>
+		  </ul>
+		</div>
+		</div>
+	</nav>
+
+	<!-- Login pop up -->
+	<div ng-show="showMe">
+		<div class="modal fade"  id="myModal" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		        <form action="#">
+		          <div class="imgcontainer">
+		            <span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+		            <img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+		          </div>
+		          <div class="formcontainer">
+		            <label>Name :</label>
+		            <p><input type="text" class="modal-text" ng-model="name" ng-blur="showName()"></p>
+		    
+		            <label>Password :</label>
+		            <p><input type="password" class="modal-text" ng-model="pass"></p>
+		            <p><button type="submit" class="login-button">Login</button></p>
+		 .            <input type="checkbox" checked="checked"> Remember me
+		            <span class="pull-right" data-toggle="modal" data-dismiss="modal" data-target="#forgotPasswordModal"  ng-click="showForgotPasswordPopup()"><a href="#">Forgot password?</a></span>
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		      	<!-- <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal"  ng-click="showDiv()">Login</button> -->
+		        <button type="submit" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#signUpModal"  ng-click="showSignUpPopup()">Not a Member? Sign Up Now</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</div>
+
+
+	<!-- Sign up -->
+	<div ng-show="showSignUp">
+		<div class="modal fade"  id="signUpModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		        <form action="#">
+		          <div class="imgcontainer">
+		            <span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+		            <img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+		          </div>
+		          <div class="formcontainer">
+		            <label>Name :</label>
+		            <p><input type="text" class="modal-text" ng-model="userName" ng-blur="showUserName()"></p>
+		            <label>Email Id :</label>
+		            <p><input type="text" class="modal-text" ng-model="userEmail" ng-blur="showUserEmail()"></p>	    
+		            <label>Password :</label>
+		            <p><input type="password" class="modal-text" ng-model="userPassword"></p>
+		            <label>Confirm Password :</label>
+		            <p><input type="password" class="modal-text" ng-model="confirmPassword"></p>
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		            <p class="pull-left"><button type="submit" class="login-button" data-dismiss="modal">Sign Up</button></p>
+		            <p class="pull-right"><button type="submit" class="login-button" data-dismiss="modal">Cancel</button></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+  
+	<div class="container-fluid" style="margin-top:110px">
+		<div class="row body-width">
+		<!-- include slideshow div -->
+			<div id="slideshow">
+				<figure>
+					<img src="images/buffet.jpg" alt="blue sea in front of an island with a palmtree">
+					<figcaption>Feeling Hungry, Think RomTro&nbsp;&nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i> </figcaption>
+				</figure>
+				<figure>
+					<img src="images/buffet1.jpg" alt="five red velvet cupcakes on a white plate with red harts on top of there white topping">
+					<figcaption>Bcoz We Are Obsessed With Food&nbsp;&nbsp;<i class="fa fa-hand-peace-o" aria-hidden="true"></i></figcaption>
+				</figure>
+				<figure>
+					<img src="images/drink-bg.jpg" alt="thick forest with a small brown path curved between the trees">
+					<figcaption>Food Is Fun, Why To Run&nbsp;&nbsp;<i class="fa fa-glass" aria-hidden="true"></i>&nbsp;<i class="fa fa-glass" aria-hidden="true"></i>			</figcaption>
+				</figure>       
+				<figure>
+					<img src="images/buffet6.jpg" alt="thick forest with a small brown path curved between the trees">
+					<figcaption>Eat Good, Feel Good&nbsp;&nbsp;<i class="fa fa-heart" style="color:red;" aria-hidden="true"></i></figcaption>
+				</figure>
+				<figure>
+					<img src="images/drink-bg2.jpg" alt="thick forest with a small brown path curved between the trees">
+					<figcaption>WTF (Where's the food)&nbsp;&nbsp;<i class="fa fa-cutlery" aria-hidden="true"></i> </figcaption>
+				</figure>
+			</div>
+			<div style="margin-top: -500px;" >
+				<div class="input-group search-set">
+					<span class="search-magnifier"><i class="fa fa-search" style="padding-left: 15px;padding-top: 18px;" aria-hidden="true"></i></span>
+					<input type="text" placeholder="Enter your Location......" ng-model="selected" uib-typeahead="country as country.name for country in countries | filter:{name:$viewValue}" class="form-control search-border" typeahead-show-hint="true" typeahead-min-length="1">
+					<span class="input-group-btn">
+						<button class="btn go-btn search-border" type="button">Show All</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="row body-width home-categories">
+			<div class="row align-middle" style="padding-top: 30px;">
+				<h2>ROMTRO SPECIALS</h2>
+				<h4 class="font-italic">FIND THE LATEST OFFERS, DEALS, AND ATTRACTIONS....</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-8"></div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-default" style="font-weight:bold; color: white; background-color: steelblue; margin-bottom:20px; 
+					float: right; margin-right: 35px; width: 200px; box-shadow: 4px 4px 7px;"><span style="font-size: 15px;">Check All Deals</span>&nbsp;&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" >
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="pull-left thinking_div" style="background-image: url(images/buffet-bg3.jpg); margin-bottom: 30px; ">
+							<h5 class="whitepapers"><strong>Buffets</strong></h5>
+							<a href="#" class="thinking_link">Unlimited Food: Taste Every Dish...</a>
+							<p>This is the perfect way to satisfy your tummy with all the choices...</p>
+							<hr style="border-color:steelblue; margin-bottom:7px"/>
+							<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:left; width:25px"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+							<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:right; width:50px"><i class="fa fa-play fa-2x" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="pull-left thinking_div" style="background-image: url(images/buffet1.jpg)">
+							<h5 class="whitepapers"><strong>A-la-carte</strong></h5>
+							<a href="#" class="thinking_link">Your Choice : Riding of choices...</a>
+							<p>Something different, have what you like to have with low price...</p>
+							<hr style="border-color:steelblue; margin-bottom:7px"/>
+							<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:left; width:25px"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+							<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:right; width:50px"><i class="fa fa-play fa-2x" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="pull-left thinking_div" style="background-image: url(images/drink-bg1.jpg)">
+							<h5 class="whitepapers"><strong>Drink & Dine</strong></h5>
+							<a href="#" class="thinking_link" >Booze Time: Time to get high...</a>
+							<p>When you wanna have good time to get high and enjoy every bit of it...</p>
+							<hr style="border-color:steelblue; margin-bottom:7px"/>
+							<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:left; width:25px"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+							<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:right; width:50px"><i class="fa fa-play fa-2x" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" style="padding-left: 15px;">
+						<div class="thinking_div" style="width: 1090px; height: 300px; background-image: url(images/drink.jpg)">
+						<h5 class="whitepapers"><strong>Party Bookings</strong></h5>
+						<a href="#" class="thinking_link">Special Ocassion: Book party place...</a>
+						<p>Special offers for booking party halls,  ...</p>
+						<hr style="border-color:steelblue; margin-top:100px"/>
+						<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:left; width:25px"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+						<a class="list-group-item" href="#" style="color:steelblue;border: none;     background: transparent;float:right; width:50px"><i class="fa fa-play fa-2x" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<!-- <div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-6">
+					<h2 style="padding-top:30px; color:white">STAY CONNECTED</h2>
+					<h4 style="padding-bottom:30px;  color:white">Keep abreast of the latest offers and news on our blog</h4>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-default" style="font-weight:bold; color: white; background-color: steelblue; margin: 55px; padding: 17px 70px; margin-left: 167px;
+    					box-shadow: 4px 4px 7px;"><span style="font-size: 15px;">READ ON</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+				</div>
+				<div class="col-md-2"></div>
+			</div> -->
+
+			<!-- <div class="row subscription align-middle">
+				<div style="background-image: url(images/buffet1.jpg); height: 280px;">
+					<h2 style="padding-top:20px; color:black">SUBSCRIBE TO OUR LATEST OFFERS</h2>
+					<div class="input-group search-set">
+						<input type="text" placeholder="Mobile Number" class="form-control trans-bg" 
+						style="height: 50px;font-size: 20px !important; border-color:black;">
+						<span class="input-group-btn">
+							<button class="btn go-btn search-border" type="button">SMS <i class="fa fa-envelope" aria-hidden="true"></i>
+							</button>
+						</span>
+					</div>
+					<div class="input-group search-set">
+						<input type="text" placeholder="Email ID" class="form-control trans-bg" 
+						style="height: 50px;font-size: 20px !important; border-color:black;">
+						<span class="input-group-btn">
+							<button class="btn go-btn search-border" type="button">Email Id</button>
+						</span>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+
+	<nav class="navbar">
+		<div class="container-fluid home-footer">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="horizontal-list">
+						<li><a href="#" class="footer-link">RomTro.com</a></li>
+					    <li><a href="#" class="footer-link">+91 9999999999</a></li>
+					    <li><a href="#" class="footer-link">© 2017 - RomTro Ltd.</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="horizontal-list">
+					    <li><a href="#" class="footer-link">Terms Of service</a></li>
+					    <li><a href="#" class="footer-link">Privacy policy</a></li>
+					    <li><a href="#" class="footer-link">Help and support</a></li>
+					    <li><a href="#" class="footer-link">About Us</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<ul class="horizontal-list">
+					    <li><a href="#" class="footer-link">SUBSCRIBE TO OUR LATEST OFFERS</a></li>					
+					    <li>
+					    	<div class="input-group" style="padding-right: 300px;padding-top: 20px;padding-left: 50px;">
+					    		<input type="text" name="mobileno" placeholder="Mobile Number" class="form-control trans-bg"
+					    		style="height: 30px; width: 200px; font-size: 10px border-color:black;">
+					    		<span class="input-group-btn">
+					    			<button class="btn" type="button" style="height:30px;">SMS</button>
+					    		</span>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="input-group" style="padding-right: 300px;padding-top: 20px;padding-left: 50px;">
+					    		<input type="text" name="mobileno" placeholder="Email ID" class="form-control trans-bg"
+					    		style="height: 30px; width: 200px; font-size: 10px border-color:black;">
+					    		<span class="input-group-btn">
+					    			<button class="btn" type="button" style="height:30px;">Email</button>
+					    		</span>
+					    	</div>
+					    </li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+		        <div class="span8">
+		        	<iframe width="90%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
+		    	</div>
+		    </div>
+		</div>
+	</nav>
+
+	<!-- include the script -->
+	<script src="js/slideshow.js"></script>
+</body>
+</html>
