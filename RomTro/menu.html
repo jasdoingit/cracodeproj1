@@ -1,0 +1,306 @@
+﻿<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, intial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/customCss.css" rel="stylesheet">
+	<link rel="stylesheet" href="login-popup.css">
+	<link href="css/slideshow.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/login-popup.js"></script>
+	<script src="js/angular-animate.js"></script>
+	<script src="js/ui-bootstrap-tpls-1.3.2.js"></script>
+</head>
+<body ng-app='Home' ng-controller='LoginCtrl' class="home-container">
+	<nav class="navbar navbar-fixed-top header-row">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+				<a href="#" class="anchor-style"><img class="logo" src="logos/logo.jpeg" /></a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav pull-right header-right">
+					<li><button class="btn btn-default login-btn" type="submit" data-toggle="modal" data-target="#myModal" ng-click="showDiv()">Login</button></li>
+					<li class="active">
+						<a href="http://www.twitter.com/" target="popup"
+						   onclick="window.open('http://www.twitter.com/','popup','width=800,height=800'); return false;">
+							<i class="fa fa-twitter fa-2x social-links" id="contact_even" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.facebook.com/" target="popup"
+						   onclick="window.open('http://www.facebook.com/','popup','width=800,height=800'); return false;">
+							<i class="fa fa-facebook fa-2x social-links" id="contact_odd" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.linkedin.com/" target="popup"
+						   onclick="window.open('http://www.linkedin.com/','popup','width=800,height=800'); return false;">
+							<i class="fa fa-linkedin fa-2x social-links" id="contact_odd" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.instagram.com/" target="popup"
+						   onclick="window.open('http://www.instagram.com/','popup','width=800,height=800'); return false;">
+							<i class="fa fa-instagram fa-2x social-links" id="contact_odd" aria-hidden="true"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Login pop up -->
+	<div ng-show="showMe">
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form action="#">
+							<div class="imgcontainer">
+								<span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+								<img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+							</div>
+							<div class="formcontainer">
+								<label>Name :</label>
+								<p><input type="text" class="modal-text" ng-model="name" ng-blur="showName()"></p>
+
+								<label>Password :</label>
+								<p><input type="password" class="modal-text" ng-model="pass"></p>
+								<p><button type="submit" class="login-button">Login</button></p>
+								.            <input type="checkbox" checked="checked"> Remember me
+								<span class="pull-right" data-toggle="modal" data-dismiss="modal" data-target="#forgotPasswordModal" ng-click="showForgotPasswordPopup()"><a href="#">Forgot password?</a></span>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<!-- <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal"  ng-click="showDiv()">Login</button> -->
+						<button type="submit" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#signUpModal" ng-click="showSignUpPopup()">Not a Member? Sign Up Now</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</div>
+
+
+	<!-- Sign up -->
+	<div ng-show="showSignUp">
+		<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form action="#">
+							<div class="imgcontainer">
+								<span class="close" title="Close Modal" data-dismiss="modal">&times;</span>
+								<img src="logos/logo.jpeg" alt="RomTro" class="avatar">
+							</div>
+							<div class="formcontainer">
+								<label>Name :</label>
+								<p><input type="text" class="modal-text" ng-model="userName" ng-blur="showUserName()"></p>
+								<label>Email Id :</label>
+								<p><input type="text" class="modal-text" ng-model="userEmail" ng-blur="showUserEmail()"></p>
+								<label>Password :</label>
+								<p><input type="password" class="modal-text" ng-model="userPassword"></p>
+								<label>Confirm Password :</label>
+								<p><input type="password" class="modal-text" ng-model="confirmPassword"></p>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<p class="pull-left"><button type="submit" class="login-button" data-dismiss="modal">Sign Up</button></p>
+						<p class="pull-right"><button type="submit" class="login-button" data-dismiss="modal">Cancel</button></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid" style="margin-top:110px">
+
+		<!-- jas menu-->
+		<div id="fh5co-featured-menu" style="background: indianred;" class="fh5co-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 fh5co-heading animate-box">
+						<h2 style="font-size: 32px;font-family:'Monotype Corsiva'">Our Delicous Menu</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis. Ad magni perspiciatis, voluptatum repellat.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+						<div class="fh5co-item animate-box">
+							<img src="images/gallery_1.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Bake Potato Pasta</h3>
+							<span class="fh5co-price">Rs.280<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+						<div class="fh5co-item animate-box">
+							<img src="images/gallery_2.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Salted Fried Chicken</h3>
+							<span class="fh5co-price">Rs.299<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+						<div class="fh5co-item margin_top animate-box">
+							<img src="images/gallery_3.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Italian Sauce Mushroom</h3>
+							<span class="fh5co-price">Rs.190<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+						<div class="fh5co-item animate-box">
+							<img src="images/gallery_4.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Fried Potato w/ Garlic</h3>
+							<span class="fh5co-price">Rs.180<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+					</div>
+					<div class="clearfix visible-sm-block visible-xs-block"></div>
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+						<div class="fh5co-item animate-box">
+							<img src="images/gallery_5.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Baked pizza</h3>
+							<span class="fh5co-price">Rs.349<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+						<div class="fh5co-item animate-box">
+							<img src="images/gallery_6.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Tacos</h3>
+							<span class="fh5co-price">Rs.200<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+						<div class="fh5co-item margin_top animate-box">
+							<img src="images/gallery_7.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Spaghetti</h3>
+							<span class="fh5co-price">Rs.220<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+						<div class="fh5co-item animate-box">
+							<img src="images/gallery_8.jpg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+							<h3>Chicken fajitas</h3>
+							<span class="fh5co-price">Rs.250<sup></sup></span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-featured-testimony" style="background: lemonchiffon;" class="fh5co-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 fh5co-heading animate-box">
+						<h2>Testimony</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-5 animate-box img-to-responsive">
+						<img src="images/person_1.jpg" alt="">
+					</div>
+					<div class="col-md-7 animate-box">
+						<blockquote>
+							<p style="font-size:20px;font-family:Monotype Corsiva;"> &ldquo; I just wanted to say that I have fallen IN LOVE with your foods. I have sacrificed good wholesome food to “treat” myself and fulfill my hunger in the past, but i have found such satisfaction with awesome foods products, that i no longer need to eat the junk. I was just having my carrot sticks paired with my two faves- sprouted hummus and better than turkey salad, and had to tell you how much i enjoy this stuff. It really is so good! i have never been so satisfied by raw roods. my husband agrees! as a busy mom who not always has time to dedicate to preparing healthy food for myself, I appreciate you! keep making great products.. &rdquo;</p>
+							<p class="author"><cite>&mdash; Jane Smith</cite></p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="fh5co-started" class="fh5co-section animate-box" style="background: lemonchiffon;" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>Book a Table</h2>
+						<p></p>
+						<p><a href="reservation.html" class="btn btn-primary btn-outline">Book Now</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row copyright">
+			<div class="col-md-12 text-center">
+				<p>
+					<small class="block">&copy; 2020 All Rights Reserved.</small>
+					<small class="block">Designed by <a href="" target="_blank">Cracode</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- jas menu end -->
+	</div>
+
+	<nav class="navbar">
+		<div class="container-fluid home-footer">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="horizontal-list">
+						<li><a href="#" class="footer-link">RomTro.com</a></li>
+						<li><a href="#" class="footer-link">+91 9999999999</a></li>
+						<li><a href="#" class="footer-link">© 2017 - RomTro Ltd.</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="horizontal-list">
+						<li><a href="#" class="footer-link">Terms Of service</a></li>
+						<li><a href="#" class="footer-link">Privacy policy</a></li>
+						<li><a href="#" class="footer-link">Help and support</a></li>
+						<li><a href="#" class="footer-link">About Us</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<ul class="horizontal-list">
+						<li><a href="#" class="footer-link">SUBSCRIBE TO OUR LATEST OFFERS</a></li>
+						<li>
+							<div class="input-group" style="padding-right: 300px;padding-top: 20px;padding-left: 50px;">
+								<input type="text" name="mobileno" placeholder="Mobile Number" class="form-control trans-bg"
+									   style="height: 30px; width: 200px; font-size: 10px border-color:black;">
+								<span class="input-group-btn">
+									<button class="btn" type="button" style="height:30px;">SMS</button>
+								</span>
+							</div>
+						</li>
+						<li>
+							<div class="input-group" style="padding-right: 300px;padding-top: 20px;padding-left: 50px;">
+								<input type="text" name="mobileno" placeholder="Email ID" class="form-control trans-bg"
+									   style="height: 30px; width: 200px; font-size: 10px border-color:black;">
+								<span class="input-group-btn">
+									<button class="btn" type="button" style="height:30px;">Email</button>
+								</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span8">
+					<iframe width="90%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Ramphal+Chowk,+Block+C,+Palam+Extension,+Palam&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=Ramphal+Chowk,+Block+C,+Palam+Extension,+Palam,+Delhi&t=m&z=17&ll=28.5851337,77.0691227&output=embed"></iframe>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- include the script -->
+	<script src="js/slideshow.js"></script>
+</body>
+</html>
