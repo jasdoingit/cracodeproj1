@@ -1,7 +1,8 @@
 var app = angular.module('Home', ['ngAnimate', 'ui.bootstrap']);
 			app.controller('LoginCtrl',function($scope, $http){
 				// For modal
-				$scope.showMe = false;
+				$scope.showMe = false;				
+				$scope.showMainContainer = true;
 				$scope.showDiv = function(){
 					$scope.showMe = true;
 					$scope.name = "";
@@ -9,6 +10,17 @@ var app = angular.module('Home', ['ngAnimate', 'ui.bootstrap']);
 					$scope.myName= true;
 					$scope.msg = true;
 				}
+				
+
+				// show menu
+				$scope.showMenu = function() {
+					$scope.showMenuContainer = true;
+					window.scrollTo(500, 0);
+				}
+				$("#romtro-logo").on('click', function() {
+				  $scope.showMenuContainer = false;
+				  window.scrollTo(500, 0);
+				});
 				// For login
 				$scope.name = " ";
 				$scope.msg = true;
